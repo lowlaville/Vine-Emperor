@@ -427,13 +427,15 @@ function renderChapter(chapterId) {
       button.className = "choice-btn";
       button.type = "button";
       button.textContent = choice.text;
-      button.setAttribute("role", "listitem");
+      const item = document.createElement("li");
+      item.className = "choices__item";
       button.addEventListener("click", () => {
         path.push({ chapter: chapter.title, choice: choice.text });
         updateHistory();
         renderChapter(choice.next);
       });
-      choicesEl.append(button);
+      item.append(button);
+      choicesEl.append(item);
     });
   }
 }
