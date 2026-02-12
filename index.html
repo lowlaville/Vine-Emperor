@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veil Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="hero">
+        <h1 class="app-title">Veil</h1>
+        <p class="tagline">Step between worlds and choose what survives the dawn.</p>
+      </header>
+
+      <section id="libraryView" class="view" aria-labelledby="libraryHeading">
+        <h2 id="libraryHeading" class="section-title">Library</h2>
+        <div id="libraryGrid" class="library-grid"></div>
+      </section>
+
+      <section id="storyView" class="view hidden" aria-labelledby="storyTitle">
+        <button id="backToLibraryBtn" type="button" class="ghost-btn">← Back to Library</button>
+        <article class="panel">
+          <h2 id="storyTitle"></h2>
+          <p id="storyDescription" class="story-description"></p>
+          <h3>Chapters</h3>
+          <ul id="chapterList" class="chapter-list"></ul>
+        </article>
+      </section>
+
+      <section id="readerView" class="view hidden" aria-labelledby="readerChapterTitle">
+        <div class="reader-actions">
+          <button id="backToStoryBtn" type="button" class="ghost-btn">← Back to Story</button>
+          <button id="backToLibraryBtnSecondary" type="button" class="ghost-btn">Library</button>
+        </div>
+
+        <article class="panel">
+          <p id="readerMeta" class="reader-meta"></p>
+          <h2 id="readerChapterTitle"></h2>
+          <p id="readerChapterText" class="chapter-text"></p>
+
+          <h3>What will you do?</h3>
+          <ul id="choiceList" class="choice-list"></ul>
+          <p id="choiceMessage" class="choice-message" role="status"></p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
