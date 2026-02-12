@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Branching Chapter Reader</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>Branching Chapter Reader</h1>
+        <p>
+          Read each chapter and choose what happens next. Your choices shape the
+          story path.
+        </p>
+      </header>
+
+      <section class="card library" aria-labelledby="libraryHeading">
+        <div class="library__header">
+          <h2 id="libraryHeading">Library</h2>
+          <p id="activeStoryLabel" class="library__active"></p>
+        </div>
+        <div id="libraryList" class="library__list" role="list"></div>
+      </section>
+
+      <section class="card" aria-live="polite">
+        <p class="chapter-label" id="chapterLabel"></p>
+        <h2 id="chapterTitle"></h2>
+        <p id="chapterBody"></p>
+
+        <div id="choices" class="choices" role="list"></div>
+
+        <div id="ending" class="ending hidden">
+          <p><strong>The End of this path.</strong></p>
+          <button id="restartBtn" type="button">Restart Story</button>
+        </div>
+      </section>
+
+      <section class="card history">
+        <h3>Path Taken</h3>
+        <ol id="historyList"></ol>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
