@@ -29,6 +29,10 @@ body {
   padding: 2rem 0 3rem;
 }
 
+.view + .view {
+  margin-top: 1rem;
+}
+
 .hero {
   margin-bottom: 1.5rem;
 }
@@ -110,7 +114,8 @@ button {
   border: 1px solid var(--gold);
   background: #161f38;
   color: var(--text);
-  padding: 0.6rem 0.8rem;
+  padding: 0.7rem 0.9rem;
+  min-height: 44px;
   cursor: pointer;
 }
 
@@ -166,7 +171,8 @@ button {
 .chapter-text,
 .story-description {
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 70ch;
 }
 
 .choice-message {
@@ -179,13 +185,52 @@ button {
   display: none;
 }
 
+@media (max-width: 900px) {
+  .app {
+    width: min(100% - 1.25rem, 1100px);
+    padding-top: 1.5rem;
+  }
+
+  .library-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
 @media (max-width: 640px) {
   .app {
     width: min(100% - 1rem, 1100px);
-    padding-top: 1.25rem;
+    padding-top: 1.1rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero {
+    margin-bottom: 1rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .panel,
+  .story-card {
+    border-radius: 12px;
   }
 
   .panel {
     padding: 0.85rem;
+  }
+
+  .library-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reader-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .ghost-btn {
+    width: 100%;
+    margin-bottom: 0;
   }
 }
