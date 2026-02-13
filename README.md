@@ -1,28 +1,27 @@
-# Veil Web App
+# Vine-Emperor
 
-A vanilla HTML/CSS/JS mythic story reader with a library homepage, story details, and chapter reading views.
+A lightweight chapter-reading web app with branching choices at the end of each chapter.
 
-## Views
+## Features
 
-- **Homepage / Library**: shows app title, tagline, and a grid of story cards.
-- **Story Detail**: shows full story description and chapter list.
-- **Chapter Reader**: shows chapter text and 2–3 choices.
-
-## Choice behavior
-
-Choices currently do not branch. Clicking a choice saves it to `localStorage` under the key `veilChoices` and shows a confirmation message.
+- Read one chapter at a time in a clean interface.
+- Pick from branching choices to navigate different story outcomes.
+- Browse a small in-app library, including the **Lightning God** story entry.
+- Track your path in a "Path Taken" history panel.
+- Restart at any ending to explore alternate branches.
 
 ## Run locally
+
+Because this is a static app, you can open `index.html` directly or run a tiny local server:
 
 ```bash
 python3 -m http.server 4173
 ```
 
-Open <http://localhost:4173>.
+Then visit <http://localhost:4173>.
 
-## Files
+## Project files
 
-- `index.html` – semantic layout and view containers.
-- `styles.css` – mythic dark theme, gold accents, responsive styles, and focus states.
-- `script.js` – single source of truth for story/chapter data and view logic.
-- `README.md` – usage and project overview.
+- `index.html` — app markup.
+- `styles.css` — app styling.
+- `script.js` — library/story data and branching logic.

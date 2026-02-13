@@ -1,14 +1,12 @@
 :root {
-  color-scheme: dark;
-  --bg-top: #05070f;
-  --bg-bottom: #0f1730;
-  --panel: #101729;
-  --panel-border: #3b2f13;
-  --text: #f3eddc;
-  --muted: #b6ad92;
-  --gold: #d9b86c;
-  --gold-strong: #f2d28b;
-  --focus: #ffe5a6;
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --border: #e5e7eb;
 }
 
 * {
@@ -17,227 +15,159 @@
 
 body {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
   color: var(--text);
-  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
-  min-height: 100vh;
+  line-height: 1.5;
 }
 
 .app {
-  width: min(1100px, 100% - 2rem);
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem 0 3rem;
+  padding: 2rem 1rem 3rem;
 }
 
-.view + .view {
-  margin-top: 1rem;
-}
-
-.hero {
+.app__header {
   margin-bottom: 1.5rem;
 }
 
-.app-title {
+.app__header h1 {
   margin: 0;
-  font-size: clamp(2rem, 6vw, 3rem);
-  letter-spacing: 0.04em;
-  color: var(--gold-strong);
 }
 
-.tagline {
+.app__header p {
+  color: var(--muted);
   margin-top: 0.5rem;
-  color: var(--muted);
-  font-size: 1.05rem;
 }
 
-.section-title {
-  margin-top: 0;
-  color: var(--gold-strong);
-}
-
-.panel,
-.story-card {
-  background: rgba(16, 23, 41, 0.92);
-  border: 1px solid var(--panel-border);
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  padding: 1.25rem;
+  box-shadow: 0 2px 14px rgba(31, 41, 55, 0.06);
 }
 
-.panel {
-  padding: 1rem;
+.card + .card {
+  margin-top: 1rem;
 }
 
-.library-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-}
-
-.story-card {
-  padding: 0.9rem;
-  display: grid;
-  gap: 0.7rem;
-  cursor: pointer;
-}
-
-.story-card h3 {
-  margin: 0;
-  color: var(--gold-strong);
-}
-
-.story-card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-.cover-placeholder {
-  border: 1px dashed var(--gold);
-  border-radius: 10px;
-  min-height: 130px;
-  display: grid;
-  place-items: center;
-  color: var(--gold-strong);
-  background: linear-gradient(145deg, #18233f, #0f1425);
-  font-size: 1.6rem;
-}
-
-.cover-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 9px;
-}
-
-button {
-  font: inherit;
-}
-
-.read-btn,
-.chapter-btn,
-.choice-btn,
-.ghost-btn {
-  appearance: none;
-  border-radius: 9px;
-  border: 1px solid var(--gold);
-  background: #161f38;
-  color: var(--text);
-  padding: 0.7rem 0.9rem;
-  min-height: 44px;
-  cursor: pointer;
-}
-
-.read-btn,
-.chapter-btn,
-.choice-btn {
-  width: 100%;
-  text-align: left;
-}
-
-.read-btn:hover,
-.chapter-btn:hover,
-.choice-btn:hover,
-.ghost-btn:hover {
-  background: #212f53;
-}
-
-.read-btn:focus-visible,
-.chapter-btn:focus-visible,
-.choice-btn:focus-visible,
-.ghost-btn:focus-visible,
-.story-card:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-.ghost-btn {
-  margin-bottom: 0.8rem;
-  background: transparent;
-}
-
-.chapter-list,
-.choice-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.6rem;
-}
-
-.reader-actions {
+.library__header {
   display: flex;
-  gap: 0.6rem;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
-.reader-meta {
+.library__header h2 {
+  margin: 0;
+}
+
+.library__active {
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-.chapter-text,
-.story-description {
-  color: var(--text);
-  line-height: 1.65;
-  max-width: 70ch;
+.library__list {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  flex-wrap: wrap;
 }
 
-.choice-message {
-  margin-top: 0.8rem;
-  color: var(--gold-strong);
-  min-height: 1.2rem;
+.library__item {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.92rem;
+}
+
+.library__item--active {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #312e81;
+  font-weight: 600;
+}
+
+.chapter-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+h2 {
+  margin-top: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+
+#chapterBody {
+  white-space: pre-line;
+}
+.choices {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.choices__item {
+  margin: 0;
+}
+
+.choice-btn,
+#restartBtn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.98rem;
+  background: var(--accent);
+  color: white;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  pointer-events: auto;
+}
+
+.choice-btn:hover,
+.choice-btn:focus-visible,
+#restartBtn:hover,
+#restartBtn:focus-visible {
+  background: var(--accent-hover);
+}
+
+.ending {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .hidden {
   display: none;
 }
 
-@media (max-width: 900px) {
-  .app {
-    width: min(100% - 1.25rem, 1100px);
-    padding-top: 1.5rem;
-  }
-
-  .library-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+.history h3 {
+  margin-top: 0;
 }
 
-@media (max-width: 640px) {
-  .app {
-    width: min(100% - 1rem, 1100px);
-    padding-top: 1.1rem;
-    padding-bottom: 2rem;
-  }
+#historyList {
+  margin: 0;
+  padding-left: 1.2rem;
+}
 
-  .hero {
-    margin-bottom: 1rem;
-  }
-
-  .tagline {
-    font-size: 1rem;
-  }
-
-  .panel,
-  .story-card {
-    border-radius: 12px;
-  }
-
-  .panel {
-    padding: 0.85rem;
-  }
-
-  .library-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reader-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .ghost-btn {
-    width: 100%;
-    margin-bottom: 0;
-  }
+#historyList li {
+  margin-bottom: 0.35rem;
+  color: var(--muted);
 }
