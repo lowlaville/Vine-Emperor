@@ -101,6 +101,13 @@ body {
   font-size: 1.6rem;
 }
 
+.cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9px;
+}
+
 button {
   font: inherit;
 }

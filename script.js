@@ -4,6 +4,7 @@ const appData = {
       id: "lightning-god",
       title: "Lightning God",
       blurb: "A prince trains beneath stormlight while ancient seams begin to tear.",
+      coverImage: "assets/lightning-god-cover.svg",
       description:
         "In the cliffside realm of Veil, Arlington wrestles with a dangerous Nightcrawler gift while his parents—Ali and Anakia—fight to teach him control before Phase Bleed consumes more than pride.",
       chapters: [
@@ -43,6 +44,7 @@ const appData = {
       id: "ashen-crown",
       title: "Ashen Crown",
       blurb: "A fallen dynasty seeks a relic before the night courts claim the throne.",
+      coverImage: null,
       description:
         "When the Ember Court collapses, an exiled heir and a reluctant sentinel hunt the Ashen Crown through shrine-cities, mausoleum libraries, and living firestorms.",
       chapters: [
@@ -134,7 +136,17 @@ function renderLibrary() {
 
     const cover = document.createElement("div");
     cover.className = "cover-placeholder";
-    cover.textContent = "✦";
+
+    if (story.coverImage) {
+      const coverImage = document.createElement("img");
+      coverImage.className = "cover-image";
+      coverImage.src = story.coverImage;
+      coverImage.alt = `${story.title} cover art`;
+      coverImage.loading = "lazy";
+      cover.append(coverImage);
+    } else {
+      cover.textContent = "✦";
+    }
 
     const title = document.createElement("h3");
     title.textContent = story.title;
